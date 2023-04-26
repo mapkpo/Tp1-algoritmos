@@ -27,8 +27,10 @@ public:
         this->cantidad -= cantidad;
     }
     bool estaLleno() {
-        if (cantidad == pesoMaximo){
+        if (this->cantidad == this->pesoMaximo){
             return true;
+        } else {
+            return false;
         }
     }
     string getTipo() {
