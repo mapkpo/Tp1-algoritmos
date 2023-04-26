@@ -5,22 +5,22 @@ class Cajon {
 private:
     int id;
     string tipo;
-    double cantidad;
-    double pesoMaximo;
+    int cantidad;
+    int pesoMaximo;
 public:
-    Cajon(int id, string tipo, double pesoMaximo = 20.0) {
+    Cajon(int id, string tipo, int pesoMaximo = 20) {
         this->id = id;
         this->tipo = tipo;
-        this->cantidad = 0.0;
+        this->cantidad = 0;
         this->pesoMaximo = pesoMaximo;
     }
-    void agregarFruta(double cantidad) {
+    void agregarFruta(int cantidad) {
         if (this->cantidad + cantidad > this->pesoMaximo) {
             throw "El cajón está lleno";
         }
         this->cantidad += cantidad;
     }
-    void quitarFruta(double cantidad) {
+    void quitarFruta(int cantidad) {
         if (this->cantidad < cantidad) {
             throw "No hay suficiente fruta en el cajón";
         }
