@@ -4,10 +4,10 @@ using namespace std;
 class Cajon{
 private:
     string tipo;
-    int cantidad;
+    int cantidad = 0;
     int pesoMaximo = 20;
 public:
-    Cajon(){}
+    Cajon() {this->cantidad = 0;}
     Cajon(int peso, string tipo) {
         if (peso > 20){
             throw "No se puede meter";

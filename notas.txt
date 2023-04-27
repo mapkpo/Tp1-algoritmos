@@ -32,7 +32,11 @@ una cola de pila de 10 cajones
 y los pedidos pueden ser una lista, tener dos listas, de pedidos completados y no
 
 
-
-
-
 LO DE METER POR TECLADO PEDIDOS Y STOCK ES OPCIONAL
+
+
+los kilos son enteros? SI
+cuando un pedido necesita mas de una fruta hay que meterlo en el mismo cajon? ES SOLO QUITAR LA FRUTA DEL STOCK Y DAR EL PEDIDO COMO CERRADO NADA MAS
+deberia usar una lista de pilas de cajones o hacer diferentes pilas? SI LA LISTA DE PILA DE ARREGLO ESTA BIEN
+
+

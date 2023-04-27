@@ -1,4 +1,4 @@
-//pila de 10 cajones de fruta
+//lista de pilas de 10 cajones de fruta
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
@@ -150,20 +150,20 @@ template <class T> void Lista<T>::tomar(int n)
     }
 }
 
-/*
 template <class T> class Pila {
 private:
     T d[MAX];
     int p;
 public:
-    Pila() { p = -1; };
+    Pila() { p = -1; }; //pruebo sino era -1
     void apilar(T x) { d[++p] = x; }; //agregar un objeto
     T tope(void) { return d[p]; };  //devuelve el objeto de arriba
     void desapilar(void) { p--; };  //borra el de arriba
-    bool pilavacia() { return p == -1; };
-    int tamanio() {return p;};
-};  */
-
+    bool pilavacia() { return p == -1; }; //cambie para probar era -1
+    int tamanio() {return p+1;};
+    bool llena() {return p+1==10;};
+};  
+/*
 template <class T> class Pila:public Lista<T>{
       public:
              Pila(){Lista<T>();};
@@ -171,4 +171,4 @@ template <class T> class Pila:public Lista<T>{
              T tope(void){return this->cabeza();};
              void desapilar(void){this->borrar();};
              bool pilavacia(){return this->esvacia();};
-};
+}; */
