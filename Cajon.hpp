@@ -1,18 +1,19 @@
 #include <string>
 using namespace std;
 
-class Cajon {
+class Cajon{
 private:
-    int id;
     string tipo;
     int cantidad;
-    int pesoMaximo;
+    int pesoMaximo = 20;
 public:
-    Cajon(int id, string tipo, int pesoMaximo = 20) {
-        this->id = id;
+    Cajon(){}
+    Cajon(int peso, string tipo) {
+        if (peso > 20){
+            throw "No se puede meter";
+        }
         this->tipo = tipo;
-        this->cantidad = 0;
-        this->pesoMaximo = pesoMaximo;
+        this->cantidad = peso;
     }
     void agregarFruta(int cantidad) {
         if (this->cantidad + cantidad > this->pesoMaximo) {
@@ -36,7 +37,7 @@ public:
     string getTipo() {
         return this->tipo;
     }
-    double getCantidad() {
+    int getCantidad() {
         return this->cantidad;
     }
 };
