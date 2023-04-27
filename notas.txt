@@ -1,0 +1,38 @@
+Consideraciones: se debe llevar el stock de fruta y pedidos de los clientes
+
+cada cajon de fruta tiene 3 atributos:
+	id
+	tipo de fruta
+	cantidad de fruta
+
+la cantidad debe ser maximo 20kg, recien ahi se inicia otro cajon
+y no se puede abrir un cajon nuevo hasta que haya uno vacio de ese tipo de fruta
+
+el deposito esta ordenado por tipo de fruta
+
+los cajones van uno arriba de otro, con 10 como maximo, el de arriba es el que se usa para venta por kg (minorista)
+
+
+
+los pedidos se hacen y preparan segun orden de llegada FIFO siempre y cuando el stock se lo permita
+
+cada pedido tiene 3 atributos:
+	nombre del cliente
+	tipo de fruta que quiere
+	cantidad de fruta que quiere
+
+un swtich para que tengan prioridad los pedidos minoristas o mayoristas
+
+
+
+
+los cajones pueden ser pilas ya que irian apilados hasta 10 cajones verticalemnte, y asi mismo 
+una cola de pila de 10 cajones 
+
+y los pedidos pueden ser una lista, tener dos listas, de pedidos completados y no
+
+
+
+
+
+LO DE METER POR TECLADO PEDIDOS Y STOCK ES OPCIONAL
