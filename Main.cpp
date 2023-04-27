@@ -39,70 +39,93 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon*>*>* lista){
         }
     }
 
-    //caso 2 pila vacia y mas de 200 elementos
-    if (pila->pilavacia() && kilos > 200){
-        int kilosTemporales = kilos;
-        while(kilosTemporales>0){
-            if(pila->tamanio() < 10 && kilosTemporales >= 20){
-            Cajon* cajona = new Cajon(20,fruta);
-            pila->apilar(cajona);
-            kilosTemporales = kilosTemporales - 20;
-            } else if(pila->tamanio() < 10 && kilosTemporales < 20){
-                Cajon* cajona = new Cajon(kilosTemporales,fruta);
+   //caso 2 pila vacia y mas de 200 elementos
+    else if (pila->pilavacia() && kilos > 200) {
+    int kilosTemporales = kilos;
+    while (kilosTemporales > 0) {
+        // Crear una nueva pila si la actual está llena
+        if (pila->tamanio() == 10) {
+            cout<<"se lleno la pila actual se crea otra"<<endl;
+            nuevaPila(lista);
+            pila = lista->cabeza();
+        }
+        
+        // Crear cajones de fruta de 20 kg hasta llegar a los 200 kg
+        if (kilosTemporales >= 200) {
+            for (int i = 0; i < 10; i++) {
+                Cajon* cajona = new Cajon(20, fruta);
                 pila->apilar(cajona);
-                kilosTemporales = 0;
-            } else cout<<"mas de 200"<<endl;
-            agregarFruta(fruta,kilosTemporales,lista);
-            break;
+            }
+            kilosTemporales -= 200;
+        } else {
+            // Crear cajones con la fruta sobrante
+            int kilosCajon = (kilosTemporales > 20) ? 20 : kilosTemporales;
+            Cajon* cajon = new Cajon(kilosCajon, fruta);
+            pila->apilar(cajon);
+            kilosTemporales -= kilosCajon;
         }
     }
+}
 
-    //caso 3 pila no vacia y mas de 200 elementos
-    if (!pila->pilavacia()){cout<<"por ahcer"<<endl;}
-       
-
-        
-
-        
+// Caso 3: pila no vacía
+else {
+    // Obtener el cajón de la pila actual que está en el tope
+    Cajon* cajon = pila->tope();
     
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-
-    // Agregar los cajones correspondientes a la pila
-        if (kilos > 200){
-        //recursiva hasta que sea menos de 200kg
-    } else if (kilos <= 20)
-    {
-        Cajon* cajona = new Cajon(kilos,fruta);
-        pila->apilar(cajona);
-    } else {
-        int kilosTemporales = kilos;
-        while (kilosTemporales > 20){
-            Cajon* cajona = new Cajon(20,fruta);
-            pila->apilar(cajona);
-            kilosTemporales = kilosTemporales - 20;
-                
+    // Verificar si el cajón tiene espacio para la nueva fruta
+    if (cajon->getCantidad() < 20) {
+        // Calcular cuántos kilos de fruta caben en el cajón actual
+        int kilosRestantes = 20 - cajon->getCantidad();
+        
+        // Verificar si los kilos de fruta que se quieren agregar caben en el cajón actual
+        if (kilos <= kilosRestantes) {
+            // Agregar la fruta al cajón actual
+            cajon->agregarFruta(kilos);
         }
-        Cajon* cajon = new Cajon(kilosTemporales,fruta);
-        pila->apilar(cajon);
-    }   
-    int Cantidadfrutaqentraenlapilaactual = (200-((pila->tamanio()-1)*20+pila->tope()->getCantidad()));   */
-    
+        else {
+            // Agregar la fruta al cajón actual hasta completarlo
+            cajon->agregarFruta(kilosRestantes);
+            int kilosTemporales = kilos - kilosRestantes;
+            
+            // Crear una nueva pila en la lista si la actual está llena
+            if (pila->tamanio() == 10) {
+                nuevaPila(lista);
+                pila = lista->cabeza();
+            }
+            
+            // Crear nuevos cajones y agregarlos a la pila actual hasta que se agreguen todos los kilos de fruta
+            while (kilosTemporales > 0) {
+                if (kilosTemporales <= 20) {
+                    Cajon* nuevoCajon = new Cajon(kilosTemporales, fruta);
+                    pila->apilar(nuevoCajon);
+                    kilosTemporales = 0;
+                }
+                else {
+                    Cajon* nuevoCajon = new Cajon(20, fruta);
+                    pila->apilar(nuevoCajon);
+                    kilosTemporales -= 20;
+                    
+                    // Crear una nueva pila en la lista si la actual está llena
+                    if (pila->tamanio() == 10) {
+                        nuevaPila(lista);
+                        pila = lista->cabeza();
+                    }
+                }
+            }
+        }
+    }
+    else {
+        // Crear una nueva pila en la lista si la actual está llena
+        if (pila->tamanio() == 10) {
+            nuevaPila(lista);
+            pila = lista->cabeza();
+        }
+        
+        // Crear un nuevo cajón y agregarlo a la pila actual
+        Cajon* nuevoCajon = new Cajon(kilos, fruta);
+        pila->apilar(nuevoCajon);
+    }
+}
     cout<<"tamanio de la lista "<<lista->size()<<endl; 
     cout<<"tamanio de la pila dentro de la lista "<<pila->tamanio()<<endl; 
     //cout<<Cantidadfrutaqentraenlapilaactual<<endl;
@@ -120,7 +143,8 @@ int main() {
    Lista<Pila<Cajon*>*>* pera = new Lista<Pila<Cajon*>*>();
 
   
-    agregarFruta("banana",201,banana);
+    agregarFruta("banana",890,banana);
+    agregarFruta("banana",672,banana);
     
 
 
@@ -141,4 +165,3 @@ int main() {
 
     return 0;
 }
-
