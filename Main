@@ -15,7 +15,7 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon>> lista){
         //lista.add(pila);
         //Pila<Cajon> pila = lista.cabeza();
     }
-    /*
+    
     // Obtener la última pila de la lista
     Pila<Cajon> pila = lista.cabeza();
     
@@ -35,10 +35,10 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon>> lista){
         }
         Cajon cajon(kilosTemporales,fruta);
         pila.apilar(cajon);
-    } */
+    } 
 
     cout<<"tamanio de la lista "<<lista.size()<<endl; 
-    //cout<<"tamanio del cajon "<<lista.cabeza().tamanio()<<endl; 
+    cout<<"tamanio de la pila "<<lista.cabeza().size()<<endl; 
     //cout<<pila.tamanio()<<endl;
 
 }
@@ -63,7 +63,7 @@ int main() {
     //Lista<Pila<Cajon>> depositoPeras;
     //Lista<Pila<Cajon>> depositoManzanas;
 
-    agregarFruta("Bananas",200, depositoBananas);
+    agregarFruta("Bananas",20, depositoBananas);
 
     
 
