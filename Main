@@ -6,13 +6,16 @@
 
 using namespace std;
 
-void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon>>& lista){
+void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon>> lista){
     // Verificar si existe una lista de pilas de cajones
     if (lista.esvacia()) {
         cout<<"nuc"<<endl;
         lista.add(Pila<Cajon>());
+        //Pila<Cajon> pila;
+        //lista.add(pila);
+        //Pila<Cajon> pila = lista.cabeza();
     }
-
+    /*
     // Obtener la última pila de la lista
     Pila<Cajon> pila = lista.cabeza();
     
@@ -32,11 +35,11 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon>>& lista){
         }
         Cajon cajon(kilosTemporales,fruta);
         pila.apilar(cajon);
-    }
+    } */
 
     cout<<"tamanio de la lista "<<lista.size()<<endl; 
-    cout<<"tamanio del cajon "<<lista.cabeza().tamanio()<<endl; 
-    cout<<pila.tamanio()<<endl;
+    //cout<<"tamanio del cajon "<<lista.cabeza().tamanio()<<endl; 
+    //cout<<pila.tamanio()<<endl;
 
 }
 
@@ -57,11 +60,17 @@ int main() {
     */
 
     Lista<Pila<Cajon>> depositoBananas;
-    Lista<Pila<Cajon>> depositoPeras;
-    Lista<Pila<Cajon>> depositoManzanas;
-
+    //Lista<Pila<Cajon>> depositoPeras;
+    //Lista<Pila<Cajon>> depositoManzanas;
 
     agregarFruta("Bananas",200, depositoBananas);
+
+    
+
+ 
+
+
+    
 
 
 
