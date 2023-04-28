@@ -145,6 +145,21 @@ int contarStock(Lista<Pila<Cajon*>*>* lista){
     } else return (((lista->size()-1)*200) + ((pila->tamanio()-1)*20+pila->tope()->getCantidad())); 
 }
 
+void quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista){
+    string fruta = lista->cabeza()->tope()->getTipo();
+    int temp = contarStock(lista);
+    temp = temp - cantidad;
+    if(cantidad > contarStock(lista)){
+        cout<<"No hay suficiente stock"<<endl;
+    
+    } else { while(!lista->esvacia()){
+        lista->borrar();
+    } if(temp != 0){
+    agregarFruta(fruta,temp,lista);
+    }
+    }
+}
+
 int main() {
     cout << "Hello, World!" << endl;
     
@@ -154,10 +169,14 @@ int main() {
    Lista<Pila<Cajon*>*>* pera = new Lista<Pila<Cajon*>*>();
 
     cout<<contarStock(banana)<<endl;
-    agregarFruta("banana",50,banana);
-    cout<<contarStock(banana)<<endl;
     agregarFruta("banana",200,banana);
     cout<<contarStock(banana)<<endl;
+    agregarFruta("banana",20,banana);
+    cout<<contarStock(banana)<<endl;
+    quitarFruta(80,banana);
+    cout<<contarStock(banana)<<endl;
+
+    
     
 
 
