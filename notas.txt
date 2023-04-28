@@ -24,6 +24,11 @@ cada pedido tiene 3 atributos:
 un swtich para que tengan prioridad los pedidos minoristas o mayoristas
 
 
+PRUEBAS:
+
+AGREGAR Y CONTAR STOCK ANDAN BIEN
+999999 es la cantidad maxima de fruta que entra antes de hacer exeption
+
 
 
 los cajones pueden ser pilas ya que irian apilados hasta 10 cajones verticalemnte, y asi mismo 
