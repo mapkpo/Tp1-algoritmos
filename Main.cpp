@@ -133,6 +133,17 @@ else {
         
 };
 
+int contarStock(Lista<Pila<Cajon*>*>* lista){
+    if(lista->esvacia()){ //si la lista es vacia retorna cero
+        return 0;
+    }
+    Pila<Cajon*>* pila = lista->cabeza();
+    if (pila->pilavacia()){ //si la pila esta vacia
+        return 0;
+    } else if (lista->size() == 1  && pila->tamanio()<= 10){   //si la lista tiene una sola pila
+        return ((pila->tamanio()-1)*20+pila->tope()->getCantidad());    //si la lista tiene mas de una pila
+    } else return (((lista->size()-1)*200) + ((pila->tamanio()-1)*20+pila->tope()->getCantidad())); 
+}
 
 int main() {
     cout << "Hello, World!" << endl;
@@ -142,9 +153,11 @@ int main() {
    Lista<Pila<Cajon*>*>* manzana = new Lista<Pila<Cajon*>*>();
    Lista<Pila<Cajon*>*>* pera = new Lista<Pila<Cajon*>*>();
 
-  
-    agregarFruta("banana",890,banana);
-    agregarFruta("banana",672,banana);
+    cout<<contarStock(banana)<<endl;
+    agregarFruta("banana",50,banana);
+    cout<<contarStock(banana)<<endl;
+    agregarFruta("banana",200,banana);
+    cout<<contarStock(banana)<<endl;
     
 
 
