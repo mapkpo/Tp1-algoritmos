@@ -41,6 +41,8 @@ deberia usar una lista de pilas de cajones o hacer diferentes pilas? SI LA LISTA
 
 PRUEBAS:
 
-AGREGAR Y CONTAR STOCK ANDAN BIEN
+AGREGAR STOCK ANDA BIEN
+CONTAR STOCK ANDA BIEN
+QUITAR STOCK ANDA BIEN
 999999 es la cantidad maxima de fruta que entra antes de hacer exeption
 
