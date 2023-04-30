@@ -261,16 +261,80 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
                     }
 
 } else if(!minoristasPendientes->colavacia()){ //seria copiar lo de arriba pero en distinto orden XDDDDDDDDDD
+    
+Pedido* pedido = minoristasPendientes->tope();
 
-    } else if(!minoristas->colavacia()){
+                    if(contarStock(listabanana) >= pedido->getBanana() && 
+                    contarStock(listamanzana) >= pedido->getManzana() &&
+                    contarStock(listapera) >= pedido->getPera()){
+                        quitarFruta(pedido->getBanana(),listabanana);
+                        quitarFruta(pedido->getManzana(),listamanzana);
+                        quitarFruta(pedido->getPera(),listapera);
+                        minoristasPendientes->desencolar();
+                        cout<<"se ha completado un pedido de minorista pendiente"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
+                    }
 
-        } else if(!mayoristasPendientes->colavacia()){
 
-            } else if(!mayoristasPendientes->colavacia()){
+} else if(!minoristas->colavacia()){
+    
+Pedido* pedido = minoristas->tope();
 
-                }
+                if(contarStock(listabanana) >= pedido->getBanana() && 
+                contarStock(listamanzana) >= pedido->getManzana() &&
+                    contarStock(listapera) >= pedido->getPera()){
+                        quitarFruta(pedido->getBanana(),listabanana);
+                        quitarFruta(pedido->getManzana(),listamanzana);
+                        quitarFruta(pedido->getPera(),listapera);
+                        minoristas->desencolar();
+                        cout<<"se ha completado un pedido"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
+                    } else {pedido->getPendiente(); //si no se puede completar el pedido lo marco como pendiente y lo muevo a la cola de mayoristas pendientes
+                            minoristasPendientes->encolar(pedido);
+                            minoristas->desencolar();
+                            cout<<"no ha completado un pedido minorista se lo movido a pendientes"<<endl;
+                            cout<<"----------------------------------------------------------------------"<<endl;}
 
 
+
+} else if(!mayoristasPendientes->colavacia()){
+
+Pedido* pedido = mayoristasPendientes->tope();
+
+            //chequeo si hay suficiente fruta para completar el pedido
+            if(contarStock(listabanana) >= pedido->getBanana() && 
+                contarStock(listamanzana) >= pedido->getManzana() &&
+                    contarStock(listapera) >= pedido->getPera()){
+                        quitarFruta(pedido->getBanana(),listabanana);
+                        quitarFruta(pedido->getManzana(),listamanzana);
+                        quitarFruta(pedido->getPera(),listapera);
+                        mayoristasPendientes->desencolar();
+                        cout<<"se ha completado un pedido de mayoristas pendientes"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
+                    }
+
+
+
+} else if(!mayoristas->colavacia()){
+
+Pedido* pedido = mayoristas->tope();
+
+                if(contarStock(listabanana) >= pedido->getBanana() && 
+                contarStock(listamanzana) >= pedido->getManzana() &&
+                    contarStock(listapera) >= pedido->getPera()){
+                        quitarFruta(pedido->getBanana(),listabanana);
+                        quitarFruta(pedido->getManzana(),listamanzana);
+                        quitarFruta(pedido->getPera(),listapera);
+                        mayoristas->desencolar();
+                        cout<<"se ha completado un pedido mayorista"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
+                    } else {pedido->getPendiente(); //si no se puede completar el pedido lo marco como pendiente y lo muevo a la cola de mayoristas pendientes
+                            mayoristasPendientes->encolar(pedido);
+                            mayoristas->desencolar();
+                            cout<<"no ha completado un pedido de mayoristas se lo movido a pendientes"<<endl;
+                            cout<<"----------------------------------------------------------------------"<<endl;}
+
+}
 }
 
 int main() {
