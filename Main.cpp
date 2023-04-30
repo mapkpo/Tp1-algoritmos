@@ -3,6 +3,10 @@
 #include <sstream>
 #include "Cajon.hpp"
 #include "Deposito.hpp"
+#include "Seguidordepedidos.hpp"
+#include "Pedido.hpp"
+
+
 
 using namespace std;
 
@@ -160,13 +164,22 @@ void quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista){
     }
 }
 
+void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool minorista){
+
+
+}
+
 int main() {
     cout << "Hello, World!" << endl;
     
     //creo las listas de pilas de las diferentes frutas, esto seria mi deposito
-   Lista<Pila<Cajon*>*>* banana = new Lista<Pila<Cajon*>*>();
-   Lista<Pila<Cajon*>*>* manzana = new Lista<Pila<Cajon*>*>();
-   Lista<Pila<Cajon*>*>* pera = new Lista<Pila<Cajon*>*>();
+    Lista<Pila<Cajon*>*>* banana = new Lista<Pila<Cajon*>*>();
+    Lista<Pila<Cajon*>*>* manzana = new Lista<Pila<Cajon*>*>();
+    Lista<Pila<Cajon*>*>* pera = new Lista<Pila<Cajon*>*>();
+
+    Cola<Pedido*>* minoristas = new Cola<Pedido*>();
+    Cola<Pedido*>* mayoristas = new Cola<Pedido*>();
+    
 
     cout<<contarStock(banana)<<endl;
     agregarFruta("banana",200,banana);

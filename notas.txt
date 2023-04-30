@@ -44,5 +44,6 @@ PRUEBAS:
 AGREGAR STOCK ANDA BIEN
 CONTAR STOCK ANDA BIEN
 QUITAR STOCK ANDA BIEN
+
 999999 es la cantidad maxima de fruta que entra antes de hacer exeption
 

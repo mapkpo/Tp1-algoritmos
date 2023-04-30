@@ -163,6 +163,7 @@ public:
     int tamanio() {return p+1;};
     bool llena() {return p+1==10;};
 };  
+
 /*
 template <class T> class Pila:public Lista<T>{
       public:
