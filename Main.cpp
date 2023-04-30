@@ -175,10 +175,30 @@ void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool mi
     } else cout<<"error"<<endl;
 }
 
-void prepararPedidos(Cola<Pedido*>* minoristas,Cola<Pedido*>* minoristasPendientes,Cola<Pedido*>* mayoristas,Cola<Pedido*>* mayoristasPendientes){
+void prepararPedidos(Cola<Pedido*>* minoristas,Cola<Pedido*>* minoristasPendientes,Cola<Pedido*>* mayoristas,Cola<Pedido*>* mayoristasPendientes,
+Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listamanzana, Lista<Pila<Cajon*>*>* listapera){
+
     if(priorizarMayoristas){
-        if(!mayoristasPendientes->colavacia())
-    } else 
+        if(!mayoristasPendientes->colavacia()){
+            //cheaquear los pendientes mayoristas
+        } else if(!mayoristas->colavacia()){
+            //chequear los mayoristas 
+            } else if(!minoristasPendientes->colavacia()){
+                //cehquea pendientes minoristas
+                } else if(!minoristas->colavacia()){
+                        //chequear minoristas
+                    }
+
+} else if(!minoristasPendientes->colavacia()){
+
+    } else if(!minoristas->colavacia()){
+
+        } else if(!mayoristasPendientes->colavacia()){
+
+            } else if(!mayoristasPendientes->colavacia()){
+
+                }
+
 
 }
 
