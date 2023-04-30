@@ -23,6 +23,7 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon*>*>* lista){
     // Verificar si existe una lista de pilas de cajones o si la que esta esta llena hasta el tope y entonces crear una en ambos casos
     if (lista->esvacia() || (lista->cabeza()->tamanio() == 10 && lista->cabeza()->tope()->getCantidad() == 20)) { 
         cout<<"La lista estaba vacia o llena, se creo otra"<<endl;
+        cout<<"----------------------------------------------------------------------"<<endl;
         nuevaPila(lista);
     }
     
@@ -159,6 +160,7 @@ void quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista){
     temp = temp - cantidad;
     if(cantidad > contarStock(lista)){
         cout<<"No hay suficiente stock"<<endl;
+        cout<<"----------------------------------------------------------------------"<<endl;
     
     } else { while(!lista->esvacia()){
         lista->borrar();
@@ -175,8 +177,10 @@ void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool mi
     if(minorista){
         minoristas->encolar(nuevo);
         cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
+        cout<<"----------------------------------------------------------------------"<<endl;
     } else mayoristas->encolar(nuevo);
         cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
+        cout<<"----------------------------------------------------------------------"<<endl;
     } else cout<<"error"<<endl;
 }
 
@@ -197,6 +201,7 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
                         quitarFruta(pedido->getPera(),listapera);
                         mayoristasPendientes->desencolar();
                         cout<<"se ha completado un pedido de mayoristas pendientes"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
                     }
 
         } else if(!mayoristas->colavacia()){
@@ -212,10 +217,12 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
                         quitarFruta(pedido->getPera(),listapera);
                         mayoristas->desencolar();
                         cout<<"se ha completado un pedido mayorista"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
                     } else {pedido->getPendiente(); //si no se puede completar el pedido lo marco como pendiente y lo muevo a la cola de mayoristas pendientes
                             mayoristasPendientes->encolar(pedido);
                             mayoristas->desencolar();
-                            cout<<"no ha completado un pedido de mayoristas se lo movido a pendientes"<<endl;}
+                            cout<<"no ha completado un pedido de mayoristas se lo movido a pendientes"<<endl;
+                            cout<<"----------------------------------------------------------------------"<<endl;}
 
             } else if(!minoristasPendientes->colavacia()){
                 //cehquea pendientes minoristas
@@ -229,6 +236,7 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
                         quitarFruta(pedido->getPera(),listapera);
                         minoristasPendientes->desencolar();
                         cout<<"se ha completado un pedido de minorista pendiente"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
                     }
                 
                 } else if(!minoristas->colavacia()){
@@ -244,10 +252,12 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
                         quitarFruta(pedido->getPera(),listapera);
                         minoristas->desencolar();
                         cout<<"se ha completado un pedido"<<endl;
+                        cout<<"----------------------------------------------------------------------"<<endl;
                     } else {pedido->getPendiente(); //si no se puede completar el pedido lo marco como pendiente y lo muevo a la cola de mayoristas pendientes
                             minoristasPendientes->encolar(pedido);
                             minoristas->desencolar();
-                            cout<<"no ha completado un pedido minorista se lo movido a pendientes"<<endl;}
+                            cout<<"no ha completado un pedido minorista se lo movido a pendientes"<<endl;
+                            cout<<"----------------------------------------------------------------------"<<endl;}
                     }
 
 } else if(!minoristasPendientes->colavacia()){ //seria copiar lo de arriba pero en distinto orden XDDDDDDDDDD
@@ -265,6 +275,7 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listapera, Lista<Pila<C
 
 int main() {
     cout << "Hello, World!" << endl;
+    cout<<"----------------------------------------------------------------------"<<endl;
 
     //le damos prioridad a mayoristas
     prioridad(true);
