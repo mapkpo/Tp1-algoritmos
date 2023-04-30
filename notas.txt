@@ -1,3 +1,26 @@
+PRUEBAS:
+
+AGREGAR STOCK ANDA BIEN
+CONTAR STOCK ANDA BIEN
+QUITAR STOCK ANDA BIEN
+AGREGAR PEDIDOS ANDA BIEN
+
+FALTA HACER PREPARAR PEDIDOS: 			en caso de haber completado un pedido se debe eliminar la fruta y el pedido 
+1 se debe chequear que se haya priorizado o no los mayoristas
+	2 si hay pedidos mayoristas ya pendientes se debe priorizar esos
+		3 si no hay pendientes mayoristas se sigue por los mayoristas normales
+			4	si hay mayoristas que no se pueden ocmpletar moverlos ala cola de mayoristas pendientes
+				5 pasar a minoristas pendientes y ver esos
+					6 minoristas normales y en caso de no poder completar pasarlos a minorista pendientes
+
+
+QUIZAS UN INTERFAZ VIA CMD ?¿
+
+999999 es la cantidad maxima de fruta que entra antes de hacer exeption
+
+---------------------------------------------------------------------------------------------------------------------------
+
+
 Consideraciones: se debe llevar el stock de fruta y pedidos de los clientes
 
 cada cajon de fruta tiene 3 atributos:
@@ -39,16 +62,5 @@ deberia usar una lista de pilas de cajones o hacer diferentes pilas? SI LA LISTA
 
 
 
-PRUEBAS:
 
-AGREGAR STOCK ANDA BIEN
-CONTAR STOCK ANDA BIEN
-QUITAR STOCK ANDA BIEN
-AGREGAR PEDIDOS ANDA BIEN
-
-FALTA HACER PREPARAR PEDIDOS 
-
-QUIZAS UN INTERFAZ VIA CMD ?¿
-
-999999 es la cantidad maxima de fruta que entra antes de hacer exeption
 

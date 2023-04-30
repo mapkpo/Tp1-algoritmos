@@ -175,7 +175,10 @@ void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool mi
     } else cout<<"error"<<endl;
 }
 
-void prepararPedidos(){
+void prepararPedidos(Cola<Pedido*>* minoristas,Cola<Pedido*>* minoristasPendientes,Cola<Pedido*>* mayoristas,Cola<Pedido*>* mayoristasPendientes){
+    if(priorizarMayoristas){
+        if(!mayoristasPendientes->colavacia())
+    } else 
 
 }
 
