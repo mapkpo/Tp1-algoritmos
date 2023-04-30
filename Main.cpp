@@ -164,9 +164,14 @@ void quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista){
     }
 }
 
-void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool minorista){
-
-
+void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool minorista, Cola<Pedido*>* minoristas, Cola<Pedido*>* mayoristas){
+    //crear el pedido
+    if(bananas >= 0 && peras >= 0 && manzanas >= 0){
+    Pedido* nuevo = new Pedido(cliente, bananas, peras, manzanas, minorista);
+    if(minorista){
+        minoristas->encolar(nuevo);
+    } else mayoristas->encolar(nuevo);
+    } else cout<<"error"<<endl;
 }
 
 int main() {
@@ -188,6 +193,9 @@ int main() {
     cout<<contarStock(banana)<<endl;
     quitarFruta(80,banana);
     cout<<contarStock(banana)<<endl;
+    agregarPedido("raul",56,84,0,1,minoristas,mayoristas);
+    cout<<minoristas->colavacia()<<endl;
+
 
     
     
