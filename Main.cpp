@@ -300,6 +300,9 @@ int main() {
     agregarFruta("pera",180,pera);
     quitarFruta(80,manzana);
     //cout<<contarStock(banana)<<endl;
+
+    //la forma de agregar un pedido es "nombre", cant. de banana, cant. de pera, cant. de manzana, bool de minorista, las colas de minorista y mayorista
+    //si true en minorista se toma la cantidad de fruta como es. si false si lo multiplica por 20 ya que eso equivale a un cajon lleno.
     agregarPedido("raul",1,1,0,false,minoristas,mayoristas);
     //cout<<minoristas->colavacia()<<endl;
     prepararPedidos(minoristas,minoristasPendientes,mayoristas,mayoristasPendientes,banana,manzana,pera);
