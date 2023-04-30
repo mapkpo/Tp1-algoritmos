@@ -10,6 +10,10 @@ bool priorizarMayoristas;
 
 using namespace std;
 
+void prioridad(bool a){
+    priorizarMayoristas = a;
+}
+
 void nuevaPila(Lista<Pila<Cajon*>*>* lista){  //crea una nueva pila en la lista
     Pila<Cajon*>* pila = new Pila<Cajon*>();
     lista->add(pila);
@@ -204,6 +208,9 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listamanzana, Lista<Pil
 
 int main() {
     cout << "Hello, World!" << endl;
+
+    //le damos prioridad a mayoristas
+    prioridad(true);
     
     //creo las listas de pilas de las diferentes frutas, esto seria mi deposito
     Lista<Pila<Cajon*>*>* banana = new Lista<Pila<Cajon*>*>();
