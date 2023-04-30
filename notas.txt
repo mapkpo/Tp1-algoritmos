@@ -5,7 +5,7 @@ CONTAR STOCK ANDA BIEN
 QUITAR STOCK ANDA BIEN
 AGREGAR PEDIDOS ANDA BIEN
 
-FALTA HACER PREPARAR PEDIDOS: 			en caso de haber completado un pedido se debe eliminar la fruta y el pedido 
+FALTA HACER PREPARAR PEDIDOS: 			en caso de haber completado un pedido se debe eliminar la fruta y el pedido
 1 se debe chequear que se haya priorizado o no los mayoristas
 	2 si hay pedidos mayoristas ya pendientes se debe priorizar esos
 		3 si no hay pendientes mayoristas se sigue por los mayoristas normales

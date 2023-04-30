@@ -4,9 +4,6 @@ using namespace std;
 class Pedido{
     private:
         string cliente;
-        /*string fruta1;
-        string fruta2;
-        string fruta3;*/
         int banana;
         int pera;
         int manzana;
@@ -15,16 +12,19 @@ class Pedido{
 
     public:
         Pedido(){}
-        Pedido(string nombre, int banana, int pera, int manzana, bool min){
+        Pedido(string nombre, int banana, int pera, int manzana, bool minorista){
             pendiente = false;
             this->cliente = nombre;
-            /*this->fruta1 = f1;
-            this->fruta2 = f2;
-            this->fruta3 = f3;*/
+            if(minorista){
             this->banana = banana;
             this->pera = pera;
             this->manzana = manzana;
-            this->minorista = min;
+            this->minorista = minorista;
+            }
+            else this->banana = banana * 20;
+            this->pera = pera * 20;
+            this->manzana = manzana * 20;
+            this->minorista = minorista;
         }
 
         void setPendiente(){
