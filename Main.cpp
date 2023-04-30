@@ -185,6 +185,19 @@ Lista<Pila<Cajon*>*>* listabanana, Lista<Pila<Cajon*>*>* listamanzana, Lista<Pil
     if(priorizarMayoristas){
         if(!mayoristasPendientes->colavacia()){
             //cheaquear los pendientes mayoristas
+            Pedido* pedido = mayoristasPendientes->tope();
+
+            //chequeo si hay suficiente fruta para completar el pedido
+            if(contarStock(listabanana) >= pedido->getBanana() && 
+                contarStock(listamanzana) >= pedido->getManzana() &&
+                    contarStock(listapera) >= pedido->getPera()){
+                        quitarFruta(pedido->getBanana(),listabanana);
+                        quitarFruta(pedido->getManzana(),listamanzana);
+                        quitarFruta(pedido->getPera(),listapera);
+                        mayoristasPendientes->desencolar();
+                        cout<<"se ha completado un pedido"<<endl;
+                    }
+
         } else if(!mayoristas->colavacia()){
             //chequear los mayoristas 
             } else if(!minoristasPendientes->colavacia()){
