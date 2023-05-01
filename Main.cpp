@@ -22,8 +22,8 @@ void nuevaPila(Lista<Pila<Cajon*>*>* lista){  //crea una nueva pila en la lista
 void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon*>*>* lista){
     // Verificar si existe una lista de pilas de cajones o si la que esta esta llena hasta el tope y entonces crear una en ambos casos
     if (lista->esvacia() || (lista->cabeza()->tamanio() == 10 && lista->cabeza()->tope()->getCantidad() == 20)) { 
-        cout<<"La lista estaba vacia o llena, se creo otra"<<endl;
-        cout<<"----------------------------------------------------------------------"<<endl;
+        //cout<<"La lista estaba vacia o llena, se creo otra"<<endl;
+        //cout<<"----------------------------------------------------------------------"<<endl;
         nuevaPila(lista);
     }
     
@@ -54,7 +54,7 @@ void agregarFruta(string fruta, int kilos, Lista<Pila<Cajon*>*>* lista){
     while (kilosTemporales > 0) {
         // Crear una nueva pila si la actual está llena
         if (pila->tamanio() == 10) {
-            cout<<"se lleno la pila actual se creo otra"<<endl;
+            //cout<<"se lleno la pila actual se creo otra"<<endl;
             nuevaPila(lista);
             pila = lista->cabeza();
         }
@@ -137,9 +137,9 @@ else {
         pila->apilar(nuevoCajon);
     }
 }
-    cout<<"Se agregaron "<<kilos<<" kilos de "<<lista->cabeza()->tope()->getTipo()<<endl;
-    cout<<"El tamanio de la lista es: "<<lista->size()<<endl; 
-    cout<<"tamanio de la pila dentro de la lista es: "<<pila->tamanio()<<endl;  
+    //cout<<"Se agregaron "<<kilos<<" kilos de "<<lista->cabeza()->tope()->getTipo()<<endl;
+    //cout<<"El tamanio de la lista es: "<<lista->size()<<endl; 
+    //cout<<"tamanio de la pila dentro de la lista es: "<<pila->tamanio()<<endl;  
 };
 
 int contarStock(Lista<Pila<Cajon*>*>* lista){
@@ -152,6 +152,14 @@ int contarStock(Lista<Pila<Cajon*>*>* lista){
     } else if (lista->size() == 1  && pila->tamanio()<= 10){   //si la lista tiene una sola pila
         return ((pila->tamanio()-1)*20+pila->tope()->getCantidad());    //si la lista tiene mas de una pila
     } else return (((lista->size()-1)*200) + ((pila->tamanio()-1)*20+pila->tope()->getCantidad())); 
+}
+
+void imprimirStock(Lista<Pila<Cajon*>*>* banana,Lista<Pila<Cajon*>*>* pera, Lista<Pila<Cajon*>*>* manzana){
+    cout<<"Stock: "<<endl;
+    cout<<"banana: "<<contarStock(banana)<<endl;
+    cout<<"pera: "<<contarStock(pera)<<endl;
+    cout<<"manzana: "<<contarStock(manzana)<<endl;
+    cout<<"----------------------------------------------------------------------"<<endl;
 }
 
 void quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista){
@@ -176,11 +184,11 @@ void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool mi
     Pedido* nuevo = new Pedido(cliente, bananas, peras, manzanas, minorista);
     if(minorista){
         minoristas->encolar(nuevo);
-        cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
-        cout<<"----------------------------------------------------------------------"<<endl;
+        //cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
+        //cout<<"----------------------------------------------------------------------"<<endl;
     } else mayoristas->encolar(nuevo);
-        cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
-        cout<<"----------------------------------------------------------------------"<<endl;
+        //cout<<"Se agrego un pedido minorista a nombre de: "<<cliente<<", "<<bananas<<" bananas, "<<peras<<" peras, "<<manzanas<<" manzanas."<<endl;
+        //cout<<"----------------------------------------------------------------------"<<endl;
     } else cout<<"error"<<endl;
 }
 
@@ -337,6 +345,10 @@ Pedido* pedido = mayoristas->tope();
 }
 }
 
+void imprimirPedidos(){
+    
+}
+
 int main() {
     cout << "Hello, World!" << endl;
     cout<<"----------------------------------------------------------------------"<<endl;
@@ -363,6 +375,7 @@ int main() {
     agregarFruta("manzana",350,manzana);
     agregarFruta("pera",180,pera);
     quitarFruta(80,manzana);
+    imprimirStock(banana,pera,manzana);
     //cout<<contarStock(banana)<<endl;
 
     //la forma de agregar un pedido es "nombre", cant. de banana, cant. de pera, cant. de manzana, bool de minorista, las colas de minorista y mayorista
@@ -386,7 +399,7 @@ int main() {
 
 
 
- system("pause");
+    //system("pause");
 
 
     
