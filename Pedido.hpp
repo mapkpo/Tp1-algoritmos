@@ -8,12 +8,11 @@ class Pedido{
         int pera;
         int manzana;
         bool minorista;
-        bool pendiente;
+
 
     public:
         Pedido(){}
         Pedido(string nombre, int banana, int pera, int manzana, bool minorista){
-            pendiente = false;
             this->cliente = nombre;
             if(minorista){
             this->banana = banana;
@@ -27,14 +26,6 @@ class Pedido{
             this->minorista = minorista;
         }
 
-        void setPendiente(){
-            this->pendiente = true;
-        }
-
-        bool getPendiente(){
-            return pendiente;
-        }
-
         int getBanana(){
             return banana;
         }
@@ -45,5 +36,9 @@ class Pedido{
 
         int getManzana(){
             return manzana;
+        }
+
+        string getNombre(){
+            return cliente;
         }
 };
