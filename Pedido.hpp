@@ -20,10 +20,11 @@ class Pedido{
             this->manzana = manzana;
             this->minorista = minorista;
             }
-            else this->banana = banana * 20;
+            else 
+            {this->banana = banana * 20;
             this->pera = pera * 20;
             this->manzana = manzana * 20;
-            this->minorista = minorista;
+            this->minorista = minorista;}
         }
 
         int getBanana(){
