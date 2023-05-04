@@ -34,7 +34,7 @@ template <class T> void Cola<T>::encolar(T a)
 template <class T> void Cola<T>::desencolar(void)
 {
     if (!colavacia())pi = (pi + 1) % MAX1;
-    else cout << "Cola vacia" << endl;
+    else cout << "Cola vacia" << endl; 
 }
 template <class T> T Cola<T>::ultimo(void)
 {
@@ -49,3 +49,4 @@ template <class T> string Cola<T>::imprimir(string s)
 
     return " <<< Q";
 };
+

@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    cout << "                        Grupo 7    escenario ?"<< endl;
+    cout << "                        Grupo 7    escenario 1"<< endl;
     cout<<"----------------------------------------------------------------------"<<endl;
 
     Fruteria* uno = new Fruteria();

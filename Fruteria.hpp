@@ -26,15 +26,24 @@ public:
         }
 
     void imprimirPedidos(){
-        cout<<"Pedidos en espera:"<<endl;
-            if(!mayoristas->colavacia()){
+    
+        
+        
+    	if(!mayoristas->colavacia()){
+    			cout<<"Pedidos en espera:"<<endl;
                 cout<<"Mayorista en espera, cliente: "<<mayoristas->tope()->getNombre()<<" / con bananas, pera y manzanas: "<<mayoristas->tope()->getBanana()
                 <<","<<mayoristas->tope()->getPera()<<","<<mayoristas->tope()->getManzana()<<endl;
+
+        
             }
-            if(!minoristas->colavacia()){
-                cout<<"Menorista en espera, cliente: "<<minoristas->tope()->getNombre()<<" / con bananas, manzana y pera: "<<minoristas->tope()->getBanana()
+            
+		if(!minoristas->colavacia()){
+				cout<<"Pedidos en espera:"<<endl;
+                cout<<"Minorista en espera, cliente: "<<minoristas->tope()->getNombre()<<" / con bananas, manzana y pera: "<<minoristas->tope()->getBanana()
                 <<","<<minoristas->tope()->getPera()<<","<<minoristas->tope()->getManzana()<<endl;
-            }
+                
+            }       
+			
     }
    
     void agregarPedido(string cliente, int bananas, int peras, int manzanas, bool minorista1){
@@ -64,10 +73,10 @@ public:
                                 quitarFruta(pedido->getBanana(),banana);
                                 quitarFruta(pedido->getManzana(),manzana);
                                 quitarFruta(pedido->getPera(),pera);
-
+                                mayoristas->desencolar();
                                 cout<<"se ha completado un pedido mayorista de "<<pedido->getNombre()<<endl;
                                 cout<<"----------------------------------------------------------------------"<<endl;
-                                mayoristas->desencolar();
+                                imprimirPedidos();
                                 } 
                                 else{
                                     cout<<"no ha completado un pedido de mayoristas"<<endl;
@@ -83,10 +92,10 @@ public:
                             quitarFruta(pedido->getBanana(),banana);
                             quitarFruta(pedido->getManzana(),manzana);
                             quitarFruta(pedido->getPera(),pera);
-                            
+                            minoristas->desencolar();
                             cout<<"se ha completado un pedido minorista de "<<pedido->getNombre()<<endl;
                             cout<<"----------------------------------------------------------------------"<<endl;
-                            minoristas->desencolar();
+                            imprimirPedidos();
                         } else {
                                 cout<<"no se ha completado un pedido minorista"<<endl;
                                 cout<<"----------------------------------------------------------------------"<<endl;
@@ -102,10 +111,10 @@ public:
                                         quitarFruta(pedido->getBanana(),banana);
                                         quitarFruta(pedido->getManzana(),manzana);
                                         quitarFruta(pedido->getPera(),pera);
-                                        
+                                        mayoristas->desencolar();
                                         cout<<"se ha completado un pedido mayorista de "<<pedido->getNombre()<<endl;
                                         cout<<"----------------------------------------------------------------------"<<endl;
-                                        mayoristas->desencolar();
+                                        imprimirPedidos();
                                         } else {
                                             cout<<"no ha completado un pedido de mayoristas"<<endl;
                                             cout<<"----------------------------------------------------------------------"<<endl;
