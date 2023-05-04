@@ -64,12 +64,13 @@ public:
                                 quitarFruta(pedido->getBanana(),banana);
                                 quitarFruta(pedido->getManzana(),manzana);
                                 quitarFruta(pedido->getPera(),pera);
-                                mayoristas->desencolar();
+
                                 cout<<"se ha completado un pedido mayorista de "<<pedido->getNombre()<<endl;
                                 cout<<"----------------------------------------------------------------------"<<endl;
+                                mayoristas->desencolar();
                                 } 
                                 else{
-                                    cout<<"no ha completado un pedido de mayoristas se lo movido a pendientes"<<endl;
+                                    cout<<"no ha completado un pedido de mayoristas"<<endl;
                                     cout<<"----------------------------------------------------------------------"<<endl;}
                                     }
                         
@@ -82,9 +83,10 @@ public:
                             quitarFruta(pedido->getBanana(),banana);
                             quitarFruta(pedido->getManzana(),manzana);
                             quitarFruta(pedido->getPera(),pera);
-                            minoristas->desencolar();
+                            
                             cout<<"se ha completado un pedido minorista de "<<pedido->getNombre()<<endl;
                             cout<<"----------------------------------------------------------------------"<<endl;
+                            minoristas->desencolar();
                         } else {
                                 cout<<"no se ha completado un pedido minorista"<<endl;
                                 cout<<"----------------------------------------------------------------------"<<endl;
@@ -100,9 +102,10 @@ public:
                                         quitarFruta(pedido->getBanana(),banana);
                                         quitarFruta(pedido->getManzana(),manzana);
                                         quitarFruta(pedido->getPera(),pera);
-                                        mayoristas->desencolar();
+                                        
                                         cout<<"se ha completado un pedido mayorista de "<<pedido->getNombre()<<endl;
                                         cout<<"----------------------------------------------------------------------"<<endl;
+                                        mayoristas->desencolar();
                                         } else {
                                             cout<<"no ha completado un pedido de mayoristas"<<endl;
                                             cout<<"----------------------------------------------------------------------"<<endl;
