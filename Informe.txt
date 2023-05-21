@@ -1,0 +1,107 @@
+Cajon.hpp 
+La clase cajon modela el cajon donde se guardan las frutas, el cual tiene 3 atributos:
+* String tipo para denotar la fruta que almacena ej banana.
+* Int cantidad, la cantidad de kilos que tiene actualmente el cajón, se inicia en cero.
+* Int pesoMaximo, la cantidad máxima de kilos que soporta el cajón, se inicia en 20.
+Cuenta con dos constructores, uno default y otro con dos atributos. Y cinco métodos: agregarFruta(), quitarFruta(), estaLleno(), geTipo() y getCantidad().
+
+Deposito.hpp
+Es el tipo de estructura donde se guarda la fruta, es una lista de pilas (pilas con arreglos no con listas) así podemos modelar un “deposito” de líneas de cajones de máximo apilable de 10 cajones. Se usa la implementación enseñanada en clase.
+
+Pedido.hpp
+La clase pedido modela los pedidos de frutas que llegaran. Cuenta con 5 atributos:
+* String cliente, el nombre de quien ha hecho el pedido.
+* Int banana, pera y manzana que son las cantidades de cada fruta que necesita el cliente.
+* Bool minorista, esto nos define si el pedido es mayorista o minorista, en caso de ser mayorista ya que los clientes mayoristas solo compran por cajón completo se multiplica por 20 los kilos que sean asignados en el pedido.
+Cuenta con dos constructores, el default y otro con los 5 atributos.
+
+Seguidordepedidos.hpp
+Es el tipo de estructura que se encarga de almacenar los pedidos en una cola de arreglos. Se usa la implementación enseñada en clase.
+
+Fruteria.hpp
+El código proporcionado es una implementación de un sistema para almacenar cajones de fruta. Hay 9 funciones proporcionadas: prioridad (), imprimirPedidos(), agregarPedido(con parametros), prepararPedidos(), contarStock(Lista<Pila<Cajon*>*>* lista), nuevaPila (), agregarFruta (), imprimirStock(), quitarFruta(int cantidad, Lista<Pila<Cajon*>*>* lista) . 
+La función prioridad () establece una bandera que indica si se priorizan los mayoristas o no. 
+La función nuevaPila () crea una nueva pila de cajones en una lista dada. 
+La función agregarFruta () agrega una cantidad determinada de fruta a la pila actual.
+La función agregarPedido() chequea que las cantidades de fruta sean >= 0, y en ese caso crea un objeto Pedido* que lo va a agregar a la cola de minoristas o mayoristas según sea el parámetro que representa a minorista.
+
+La función agregarFruta () verifica si la lista de pilas de cajones está vacía o si la pila actual está llena antes de agregar los cajones de fruta. Si la pila actual está llena, la función crea una nueva pila en la lista y agrega los cajones de fruta a la nueva pila. Si la pila actual no está vacía, la función agrega los cajones de fruta al cajón superior actual, y si el cajón actual está lleno, crea una nueva pila en la lista y agrega los cajones de fruta a la nueva pila. 
+
+La función "contarStock" recibe una lista de pilas de cajones y devuelve la cantidad total de frutas que hay en todas ellas. Primero comprueba si la lista está vacía y, si lo está, devuelve cero. Después, toma la cabeza de la lista (es decir, la primera pila) y comprueba si está vacía. Si lo está, devuelve cero. Si no está vacía, comprueba si la lista tiene solo una pila y si esa pila tiene 10 o menos cajones. Si es así, devuelve la cantidad de frutas en esa pila. Si la lista tiene más de una pila o si la única pila tiene más de 10 cajones, devuelve la cantidad total de frutas en todas las pilas. Esta cantidad se calcula multiplicando el número de pilas menos uno por 200 y sumando el número de cajones menos uno de la primera pila multiplicado por 20 más la cantidad de frutas en el tope de esa pila.
+
+La función "imprimirStock" imprime la cantidad de cada tipo de fruta en cada una de las tres listas de pilas que recibe como parámetros, utilizando la función "contarStock".
+
+La función "quitarFruta" recibe una cantidad de frutas y una lista de pilas de cajones y quita esa cantidad de frutas de la lista. Primero calcula la cantidad total de frutas en la lista utilizando la función "contarStock". Si la cantidad que se quiere quitar es mayor que la cantidad total de frutas en la lista, imprime un mensaje de error. Si no, borra todas las pilas de la lista y luego agrega una pila con la cantidad restante de frutas, si es que queda alguna.
+
+La función "agregarPedido" recibe el nombre de un cliente y la cantidad de bananas, peras y manzanas que quiere pedir, así como un valor booleano que indica si el pedido es para un minorista o para un mayorista, y dos colas de pedidos, una para minoristas y otra para mayoristas. Crea un nuevo objeto Pedido con la información proporcionada y lo encola en la cola correspondiente. Si el valor booleano indica que el pedido es para un minorista, se encola en la cola de minoristas. Si no, se encola en la cola de mayoristas. Si alguno de los argumentos de cantidad es negativo, imprime un mensaje de error.
+
+Dentro de la función "prepararPedidos", si se debe priorizar a los mayoristas y hay algún pedido en la cola de mayoristas, se verifica si hay suficiente stock de frutas en las tres listas de pilas. Si se cumple la condición, se quita la cantidad de frutas necesarias de cada lista, se desencola el pedido de la cola de mayoristas y se imprime un mensaje de éxito. En caso contrario, se imprime un mensaje de que el pedido no pudo ser completado y se deja en espera.
+
+Si no se deben priorizar a los mayoristas y hay algún pedido en la cola de minoristas, se realiza el mismo proceso que para los mayoristas. Si no hay pedidos de minoristas y hay pedidos de mayoristas en espera, se realiza el mismo proceso que para los mayoristas con prioridad.
+
+La función "imprimirPedidos" simplemente imprime los detalles de los pedidos en espera, si los hay, para ambas colas de pedidos.
+
+
+Escenario 1 
+Se agregan 150 bananas, 210 peras y 150 manzanas
+Se llama a imprimir stock
+La prioridad está en mayoristas
+Se agrega pedido minorista con 1,1,1 frutas
+Se agrega pedido mayorista con 1,1,1 cajones
+Se agrega pedido minorista con 500,150,236 frutas
+Se agrega pedido mayorista con 12,16,10 cajones
+Se llama a imprimir pedidos
+Se llama dos veces a preparar pedido
+Se llama a imprimir pedidos
+(solo se ha completado uno porque la prioridad está en mayoristas)
+Se llama a prioridad y se cambia
+Se llama a imprimir pedidos
+Se agregan 650 bananas, 256 peras y 320 manzanas
+Se llama dos veces a preparar pedido
+Se llama a imprimir stock
+Se llama a preparar pedido 
+Se llama a imprimir stock
+FIN
+
+
+Escenario 2
+Se agrego determinada cantidad de fruta al stock
+Se da prioridad mayorista
+Se genera pedido minorista con cantidad > stock
+Se genera pedido mayorista con cantidad > stock
+Escenario 3
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos mayoristas
+Se genera pedido minorista con cantidad < stock
+Se genera pedido mayorista con cantidad > stock
+Escenario 4
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos mayoristas
+Se genera pedido minorista con cantidad > stock
+Se genera pedido mayorista con cantidad < stock
+Escenario 5
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos mayoristas
+Se genera pedido minorista con cantidad < stock
+Se genera pedido mayorista con cantidad < stock
+Escenario 6
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos minoristas
+Se genera pedido minorista con cantidad > stock
+Se genera pedido mayorista con cantidad > stock
+Escenario 7
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos minoristas
+Se genera pedido minorista con cantidad < stock
+Se genera pedido mayorista con cantidad > stock
+Escenario 8
+Se agrego determinada cantidad de fruta
+Se da prioridad a pedidos minoristas
+Se genera pedido minorista con cantidad > stock
+Se genera pedido mayorista con cantidad < stock
+
+
+
+
+
+
